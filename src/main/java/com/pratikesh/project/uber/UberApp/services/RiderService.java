@@ -5,6 +5,8 @@ import com.pratikesh.project.uber.UberApp.dto.RideDTO;
 import com.pratikesh.project.uber.UberApp.dto.RideRequestDTO;
 import com.pratikesh.project.uber.UberApp.dto.RiderDTO;
 import com.pratikesh.project.uber.UberApp.entities.RideRequest;
+import com.pratikesh.project.uber.UberApp.entities.Rider;
+import com.pratikesh.project.uber.UberApp.entities.User;
 
 import java.util.List;
 
@@ -15,4 +17,6 @@ public interface RiderService {
     DriverDTO rateDriver(Long rideId, Integer rating);
     RiderDTO getMyProfile();
     List<RideDTO> getMyAllRides();
+
+    Rider createNewRider(User user);
 }

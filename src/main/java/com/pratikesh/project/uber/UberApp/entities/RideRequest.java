@@ -10,6 +10,7 @@ import org.locationtech.jts.geom.Point;
 
 import java.awt.*;
 import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -37,4 +38,6 @@ public class RideRequest {
 
     @Enumerated(EnumType.STRING)
     private RideRequestStatus rideRequestStatus;
+
+    private Double fare;
 }

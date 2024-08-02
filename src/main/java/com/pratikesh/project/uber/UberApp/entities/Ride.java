@@ -1,7 +1,6 @@
 package com.pratikesh.project.uber.UberApp.entities;
 
 import com.pratikesh.project.uber.UberApp.entities.enums.PaymentMethod;
-import com.pratikesh.project.uber.UberApp.entities.enums.RideRequestStatus;
 import com.pratikesh.project.uber.UberApp.entities.enums.RideStatus;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -35,7 +34,7 @@ public class Ride {
 
     @Enumerated(EnumType.STRING)
     private RideStatus rideStatus;
-
+    private String otp;
     private Double fare;
     private LocalDateTime startedAt;
     private LocalDateTime endedAt;
