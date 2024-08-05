@@ -63,8 +63,8 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-spatial</artifactId>
 			<version>6.5.2.Final</version>
-			<type>pom</type>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.modelmapper</groupId>
