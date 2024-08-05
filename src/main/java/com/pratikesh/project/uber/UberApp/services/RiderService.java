@@ -4,7 +4,6 @@ import com.pratikesh.project.uber.UberApp.dto.DriverDTO;
 import com.pratikesh.project.uber.UberApp.dto.RideDTO;
 import com.pratikesh.project.uber.UberApp.dto.RideRequestDTO;
 import com.pratikesh.project.uber.UberApp.dto.RiderDTO;
-import com.pratikesh.project.uber.UberApp.entities.RideRequest;
 import com.pratikesh.project.uber.UberApp.entities.Rider;
 import com.pratikesh.project.uber.UberApp.entities.User;
 

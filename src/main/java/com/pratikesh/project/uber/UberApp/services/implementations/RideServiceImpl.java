@@ -26,7 +26,7 @@ public class RideServiceImpl implements RideService {
     private final ModelMapper modelMapper;
     @Override
     public Ride getRideById(Long rideId) {
-        return null;
+        return rideRepository.findById(rideId).orElseThrow(()-> new RuntimeException("Ride not found with id "+ rideId));
     }
 
     @Override
@@ -43,11 +43,15 @@ public class RideServiceImpl implements RideService {
         ride.setDriver(driver);
         ride.setOtp(generateOTP());
         ride.setId(null);
+
+        rideRequestService.update(rideRequest);
+        return rideRepository.save(ride);
     }
 
     @Override
-    public Ride updateRideStatus(Long rideId, RideStatus rideStatus) {
-        return null;
+    public Ride updateRideStatus(Ride ride, RideStatus rideStatus) {
+       ride.setRideStatus(rideStatus);
+       return rideRepository.save(ride);
     }
 
     @Override

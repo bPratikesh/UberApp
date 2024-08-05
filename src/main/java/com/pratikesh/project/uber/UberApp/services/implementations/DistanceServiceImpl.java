@@ -2,7 +2,6 @@ package com.pratikesh.project.uber.UberApp.services.implementations;
 
 import com.pratikesh.project.uber.UberApp.services.DistanceService;
 import lombok.Data;
-import org.locationtech.jts.geom.LineSegment;
 import org.locationtech.jts.geom.Point;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
