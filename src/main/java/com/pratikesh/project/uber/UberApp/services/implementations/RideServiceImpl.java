@@ -66,4 +66,5 @@ public class RideServiceImpl implements RideService {
         int otpInt = random.nextInt(10000);
         return String.format("%04d", otpInt);
     }
+
 }
