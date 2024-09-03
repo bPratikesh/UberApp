@@ -3,7 +3,9 @@ package com.pratikesh.project.uber.UberApp.controllers;
 import com.pratikesh.project.uber.UberApp.dto.*;
 import com.pratikesh.project.uber.UberApp.services.RiderService;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.query.Page;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,6 +37,12 @@ public class RiderController {
     }
 
     @GetMapping("/getMyRides")
+    public ResponseEntity<Page<RideDTO>> getAllMyRides (@RequestParam(defaultValue = "0") Integer pageOffSet,
+                                                        @RequestParam(defaultValue = "10", required = false) Integer pageSize){
+        PageRequest pageRequest = PageRequest.of(pageOffSet, pageSize,
+                Sort.by(Sort.Direction.DESC, "createdTime", "id"));
+        return ResponseEntity.ok(riderService.getMyAllRides(pageRequest));
+    }
 
 
 }
