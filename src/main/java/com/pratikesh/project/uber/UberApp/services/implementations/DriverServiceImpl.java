@@ -10,10 +10,7 @@ import com.pratikesh.project.uber.UberApp.entities.enums.RideRequestStatus;
 import com.pratikesh.project.uber.UberApp.entities.enums.RideStatus;
 import com.pratikesh.project.uber.UberApp.exceptions.ResourceNotFoundException;
 import com.pratikesh.project.uber.UberApp.repositories.DriverRepository;
-import com.pratikesh.project.uber.UberApp.services.DriverService;
-import com.pratikesh.project.uber.UberApp.services.PaymentService;
-import com.pratikesh.project.uber.UberApp.services.RideRequestService;
-import com.pratikesh.project.uber.UberApp.services.RideService;
+import com.pratikesh.project.uber.UberApp.services.*;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -32,6 +29,7 @@ public class DriverServiceImpl implements DriverService {
     private final RideService rideService;
     private final ModelMapper modelMapper;
     private final PaymentService paymentService;
+    private final RatingService ratingService;
 
     @Override
     @Transactional
@@ -94,6 +92,7 @@ public class DriverServiceImpl implements DriverService {
         Ride savedRide = rideService.updateRideStatus(ride, RideStatus.ONGOING);
 
         paymentService.createNewPayment(savedRide);
+        ratingService.createNewRating(savedRide);
 
         return modelMapper.map(savedRide,RideDTO.class);
     }
@@ -124,7 +123,19 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public RiderDTO rateRider(Long rideId, Integer rating) {
-        return null;
+        Ride ride = rideService.getRideById(rideId);
+        Driver driver = getCurrentDriver();
+
+        if(!driver.equals(ride.getDriver())){
+            throw new RuntimeException("Driver is not owner of this ride");
+        }
+
+        if(!ride.getRideStatus().equals(RideStatus.ENDED)){
+            throw new RuntimeException("Ride is not ENDED hence cannot start rating, status: "+ride.getRideStatus());
+        }
+
+        return ratingService.rateRider(ride, rating);
+
     }
 
     @Override

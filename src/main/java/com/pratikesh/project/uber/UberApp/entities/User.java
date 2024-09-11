@@ -8,9 +8,12 @@ import lombok.Setter;
 import java.util.Set;
 
 @Entity
-@Table(name = "appUser")
 @Getter
 @Setter
+@Table(name = "appUser", indexes = {
+        @Index(name = "idx_user_email", columnList = "email")
+})
+
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
