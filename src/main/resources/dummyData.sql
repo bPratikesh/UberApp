@@ -65,33 +65,35 @@ INSERT INTO user_roles(user_id, roles) VALUES
 
 
 
-INSERT INTO rider(id, user_id, rating) VALUES
-(1, 1, 4.9);
+INSERT INTO rider(user_id, rating) VALUES
+(1, 4.9);
 
 
-INSERT INTO driver(id, user_id, rating, available, current_location) VALUES
-(2, 2, 4.7, true, ST_GeomFromText('POINT(73.1150 19.0130)', 4326)),
-(3, 3, 4.5, true, ST_GeomFromText('POINT(73.1152 19.0132)', 4326)),
-(4, 4, 4.6, true, ST_GeomFromText('POINT(73.1148 19.0136)', 4326)),
-(5, 5, 4.8, true, ST_GeomFromText('POINT(73.1151 19.0129)', 4326)),
-(6, 6, 4.9, true, ST_GeomFromText('POINT(73.1149 19.0133)', 4326)),
-(7, 7, 4.4, true, ST_GeomFromText('POINT(73.1153 19.0134)', 4326)),
-(8, 8, 4.3, true, ST_GeomFromText('POINT(73.1154 19.0131)', 4326)),
-(9, 9, 4.5, true, ST_GeomFromText('POINT(73.1155 19.0135)', 4326)),
-(10, 10, 4.6, true, ST_GeomFromText('POINT(73.1156 19.0132)', 4326)),
-(11, 11, 4.7, true, ST_GeomFromText('POINT(73.1157 19.0133)', 4326)),
-(12, 12, 4.8, true, ST_GeomFromText('POINT(73.1158 19.0134)', 4326)),
-(13, 13, 4.9, true, ST_GeomFromText('POINT(73.1159 19.0131)', 4326)),
-(14, 14, 4.4, true, ST_GeomFromText('POINT(73.1160 19.0132)', 4326)),
-(15, 15, 4.3, true, ST_GeomFromText('POINT(73.1161 19.0133)', 4326)),
-(16, 16, 4.5, true, ST_GeomFromText('POINT(73.1162 19.0134)', 4326)),
-(17, 17, 4.6, true, ST_GeomFromText('POINT(73.1163 19.0130)', 4326)),
-(18, 18, 4.7, true, ST_GeomFromText('POINT(73.1164 19.0132)', 4326)),
-(19, 19, 4.8, true, ST_GeomFromText('POINT(73.1165 19.0131)', 4326)),
-(20, 20, 4.9, true, ST_GeomFromText('POINT(73.1166 19.0133)', 4326));
+INSERT INTO driver(user_id, rating, available, current_location) VALUES
+(2, 4.7, true, ST_GeomFromText('POINT(73.1150 19.0130)', 4326)),
+(3, 4.5, true, ST_GeomFromText('POINT(73.1152 19.0132)', 4326)),
+(4, 4.6, true, ST_GeomFromText('POINT(73.1148 19.0136)', 4326)),
+(5, 4.8, true, ST_GeomFromText('POINT(73.1151 19.0129)', 4326)),
+(6, 4.9, true, ST_GeomFromText('POINT(73.1149 19.0133)', 4326)),
+(7, 4.4, true, ST_GeomFromText('POINT(73.1153 19.0134)', 4326)),
+(8, 4.3, true, ST_GeomFromText('POINT(73.1154 19.0131)', 4326)),
+(9, 4.5, true, ST_GeomFromText('POINT(73.1155 19.0135)', 4326)),
+(10, 4.6, true, ST_GeomFromText('POINT(73.1156 19.0132)', 4326)),
+(11, 4.7, true, ST_GeomFromText('POINT(73.1157 19.0133)', 4326)),
+(12, 4.8, true, ST_GeomFromText('POINT(73.1158 19.0134)', 4326)),
+(13, 4.9, true, ST_GeomFromText('POINT(73.1159 19.0131)', 4326)),
+(14, 4.4, true, ST_GeomFromText('POINT(73.1160 19.0132)', 4326)),
+(15, 4.3, true, ST_GeomFromText('POINT(73.1161 19.0133)', 4326)),
+(16, 4.5, true, ST_GeomFromText('POINT(73.1162 19.0134)', 4326)),
+(17, 4.6, true, ST_GeomFromText('POINT(73.1163 19.0130)', 4326)),
+(18, 4.7, true, ST_GeomFromText('POINT(73.1164 19.0132)', 4326)),
+(19, 4.8, true, ST_GeomFromText('POINT(73.1165 19.0131)', 4326)),
+(20, 4.9, true, ST_GeomFromText('POINT(73.1166 19.0133)', 4326));
 
 
-
+INSERT INTO wallet (user_id, balance) VALUES
+(1,100),
+(2,500);
 
 
 
