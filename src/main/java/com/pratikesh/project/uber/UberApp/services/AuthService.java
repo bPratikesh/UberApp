@@ -11,4 +11,5 @@ public interface AuthService {
     DriverDTO onBoardNewDriver(Long userId, String vehicleId);
 
 
+    String refreshToken(String refreshToken);
 }
